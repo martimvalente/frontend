@@ -96,13 +96,13 @@ const GetEstaca = ({ apiKey, endpointPath }) => {
           
           <div className="py-4">
             <div className="flex items-center mb-4">
-              <span className="label-text mr-2">Status:</span> 
+              <span className="label-text mr-2">Estado da Estaca:</span> 
               <div className={`w-3 h-3 rounded-full ${true ? 'bg-green-500' : 'bg-red-500'}`}></div> {/* Assuming the status is always up for this example */}
             </div>
 
             <div className="form-control">
               <label className="label cursor-pointer">
-                <span className="label-text">Activate Pump</span> 
+                <span className="label-text">Activar Bomba de Rega</span> 
                 <input type="checkbox" className="toggle" checked={pumpStatus} onChange={togglePump} />
               </label>
             </div>
