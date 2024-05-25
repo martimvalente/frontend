@@ -11,9 +11,8 @@ const GetEstaca = ({ apiKey, endpointPath }) => {
   useEffect(() => {
     // Initialize Firebase with the provided API key
     const firebaseConfig = {
-      apiKey: "fWDjIABPerAOYXm4wi92lnDH7RJPmcwTvGk7Zpkd",
-      databaseURL:
-        "https://estaca-inteligente-default-rtdb.europe-west1.firebasedatabase.app",
+      apiKey: apiKey,
+      databaseURL: "https://estaca-inteligente-default-rtdb.europe-west1.firebasedatabase.app",
     };
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
@@ -42,18 +41,28 @@ const GetEstaca = ({ apiKey, endpointPath }) => {
     <div>
       {data ? (
         <div>
-          {Object.keys(data).map((key) => (
-            <div class="w-full max-w-md mx-auto my-8 bg-white rounded-xl overflow-hidden shadow-md">
-              <div class="px-4 py-2 bg-gray-200">
-                <h2 class="text-lg font-bold">{key}</h2>
+          {Object.keys(data).map((estacaKey) => (
+            <div key={estacaKey} className="w-full max-w-md mx-auto my-8 bg-white rounded-xl overflow-hidden shadow-md">
+              <div className="px-4 py-2 bg-gray-200">
+                <h2 className="text-lg font-bold">Dispositivo: <b>{estacaKey}</b></h2>
               </div>
-              <div class="px-4 py-2 grid grid-cols-2 gap-2">
-                {Object.keys(data[key]).map((field) => (
-                  <div key={field} class="flex items-center">
-                    <span class="font-semibold text-lg mr-2">{field}:</span>
-                    <span class="text-sm">{data[key][field]}</span>
-                  </div>
-                ))}
+              <div className="px-4 py-2 grid grid-cols-2 gap-2">
+                <div className="flex items-center">
+                  <span className="font-semibold text-lg mr-2">Humidade Ambiente:</span>
+                  <span className="text-2xl font-medium">{data[estacaKey].HumidadeA}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-semibold text-lg mr-2">Humidade Solo:</span>
+                  <span className="text-sm">{data[estacaKey].HumidadeS}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-semibold text-lg mr-2">Temperatura Ambiente:</span>
+                  <span className="text-sm">{data[estacaKey].TemperaturaA}</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="font-semibold text-lg mr-2">Temperatura Solo:</span>
+                  <span className="text-sm">{data[estacaKey].TemperaturaS}</span>
+                </div>
               </div>
             </div>
           ))}

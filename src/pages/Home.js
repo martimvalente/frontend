@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import GetWeather from "../hooks/GetWeather";
 import GetEstaca from "../hooks/GetEstacaDetails";
-import GetDispositivos from "../hooks/GetDispositivos.js";
+import GetProximaChuva from "../hooks/GetProximaChuva.js";
+import GetTabelaChuvas from "../hooks/GetTabelaChuvas.js"
 
 function Home() {
   return (
@@ -26,6 +27,8 @@ function Home() {
               <hr />
             </div>
             <GetWeather />
+            <GetProximaChuva/>
+            <GetTabelaChuvas/>
           </div>
         </div>
       </div>

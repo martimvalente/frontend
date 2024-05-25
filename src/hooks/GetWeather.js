@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function GetWeather() {
-  const [cityName, setCityName] = useState("Estarreja");
+  const [cityName, setCityName] = useState("Coimbra");
   const [inputText, setInputText] = useState("");
   const [data, setData] = useState({});
   const [error, setError] = useState(false);
@@ -36,14 +36,6 @@ function GetWeather() {
   return (
     <>
       <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md p-8">
-        <input
-          type="text"
-          className="input mb-4"
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-          onKeyDown={handleSearch}
-          placeholder="Enter city name"
-        />
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -58,7 +50,7 @@ function GetWeather() {
                 src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
                 alt=""
                 className="mr-2"
-                style={{ width: "80px", height: "80px" }}
+                style={{ width: "100px", height: "100px" }}
               />
               <h2 className="text-xl">{data.weather[0].main}</h2>
             </div>
