@@ -53,7 +53,7 @@ const TabelaChuvas = ({ apiKey, city }) => {
     });
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <span className="loading loading-infinity loading-lg"></span>;
   if (error) return <div>Error: {error}</div>;
 
   return (

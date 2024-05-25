@@ -16,7 +16,7 @@ function GetWeather() {
           setError(false); // Reset error state if successful response
           return res.json();
         } else {
-          throw new Error("Something went wrong");
+          throw new Error("Algo falhou...");
         }
       })
       .then((data) => {
@@ -37,9 +37,9 @@ function GetWeather() {
     <>
       <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md p-8">
         {loading ? (
-          <p>Loading...</p>
+          <span className="loading loading-infinity loading-lg"></span>
         ) : error ? (
-          <p>Error fetching data</p>
+          <p>Erro ao buscar dados...</p>
         ) : (
           <>
             <h1 className="text-3xl font-semibold mb-4 text-center">

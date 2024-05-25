@@ -1,0 +1,4 @@
+//TO DO:
+
+> modal com opções da estaca + estado ou estado c bolinha na cabeça do card
+

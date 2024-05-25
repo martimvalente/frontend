@@ -37,11 +37,11 @@ const NextRain = ({ apiKey, city }) => {
         return data[i].dt_txt;
       }
     }
-    return "No rain expected in the next 5 days";
+    return "Nenhuma precipitação esperada durante os próximos 5 dias";
   };
 
   if (loading)
-    return <div className="text-center text-gray-500">Loading...</div>;
+    return <div className="text-center text-gray-500"><span className="loading loading-infinity loading-lg"></span></div>;
   if (error)
     return <div className="text-center text-red-500">Error: {error}</div>;
 
