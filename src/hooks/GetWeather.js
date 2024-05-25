@@ -35,7 +35,7 @@ function GetWeather() {
 
   return (
     <>
-      <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md p-8">
+      <div className="px-4 py-2 max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md p-8">
         {loading ? (
           <span className="loading loading-infinity loading-lg"></span>
         ) : error ? (

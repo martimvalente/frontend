@@ -60,29 +60,31 @@ const GetEstaca = ({ apiKey, endpointPath }) => {
                 <h2 className="text-lg font-bold">Dispositivo: <b>{estacaKey}</b></h2>
                 <FiSettings className="cursor-pointer" size={20} onClick={() => openModal(estacaKey)} />
               </div>
-              <div className="px-4 py-2 grid grid-cols-2 gap-2">
-                <div className="flex items-center">
-                  <span className="font-semibold text-lg mr-2">Humidade Ambiente:</span>
-                  <span className="text-2xl font-medium">{data[estacaKey].HumidadeA}</span>
+              <section className="p-6 dark:bg-gray-100 dark:text-gray-800">
+                <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-2 gap-4">
+                  <div className="flex flex-col justify-start m-2 lg:m-6">
+                    <p className="text-4xl font-bold text-center mb-6">{data[estacaKey].HumidadeA} %</p>
+                    <p className="text-sm sm:text-base">Humidade Ambiente</p>
+                  </div>
+                  <div className="flex flex-col justify-start m-2 lg:m-6">
+                    <p className="text-4xl font-bold text-center mb-6">{data[estacaKey].HumidadeS} %</p>
+                    <p className="text-sm sm:text-base">Humidade do Solo</p>
+                  </div>
+                  <div className="flex flex-col justify-start m-2 lg:m-6">
+                    <p className="text-4xl font-bold text-center mb-6">{data[estacaKey].TemperaturaA} ºC</p>
+                    <p className="text-sm sm:text-base">Temperatura Ambiente</p>
+                  </div>
+                  <div className="flex flex-col justify-start m-2 lg:m-6">
+                    <p className="text-4xl font-bold text-center mb-6">{data[estacaKey].TemperaturaS} ºC</p>
+                    <p className="text-sm sm:text-base">Temperatura do Solo</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <span className="font-semibold text-lg mr-2">Humidade Solo:</span>
-                  <span className="text-sm">{data[estacaKey].HumidadeS}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="font-semibold text-lg mr-2">Temperatura Ambiente:</span>
-                  <span className="text-sm">{data[estacaKey].TemperaturaA}</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="font-semibold text-lg mr-2">Temperatura Solo:</span>
-                  <span className="text-sm">{data[estacaKey].TemperaturaS}</span>
-                </div>
-              </div>
+              </section>
             </div>
           ))}
         </div>
       ) : (
-        <span className="loading loading-infinity loading-lg"></span>
+        <p>A carregar os dados...</p>
       )}
 
       <dialog id="settings_modal" className="modal">
@@ -94,13 +96,13 @@ const GetEstaca = ({ apiKey, endpointPath }) => {
           
           <div className="py-4">
             <div className="flex items-center mb-4">
-              <span className="label-text mr-2">Estado da Estaca:</span> 
+              <span className="label-text mr-2">Status:</span> 
               <div className={`w-3 h-3 rounded-full ${true ? 'bg-green-500' : 'bg-red-500'}`}></div> {/* Assuming the status is always up for this example */}
             </div>
 
             <div className="form-control">
               <label className="label cursor-pointer">
-                <span className="label-text">Activar Rega:</span> 
+                <span className="label-text">Activate Pump</span> 
                 <input type="checkbox" className="toggle" checked={pumpStatus} onChange={togglePump} />
               </label>
             </div>
